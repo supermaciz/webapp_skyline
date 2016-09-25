@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="fr" class="no-js">
+<head>
+<meta charset="UTF-8">
+<title>ROGER SKYLINE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link href={% static 'assets/css/bootstrap.css' %} rel="stylesheet" />
+<!-- ION ICONS STYLES -->
+<link href={% static 'assets/css/ionicons.css' %} rel="stylesheet" />
+<!-- FONT AWESOME ICONS STYLES -->
+<link href={% static 'assets/css/font-awesome.css' %} rel="stylesheet" />
+<!-- FANCYBOX POPUP STYLES -->
+<link href={% static 'assets/js/source/jquery.fancybox.css' %} rel="stylesheet" />
+<!-- STYLES FOR VIEWPORT ANIMATION -->
+<link href={% static 'assets/css/animations.min.css' %} rel="stylesheet" />
+<!-- CUSTOM CSS -->
+<link href={% static 'assets/css/style-solid-black.css' %} rel="stylesheet" />
+</head>
+
+<body data-spy="scroll" data-target="#menu-section">
+
+<div class="navbar navbar-inverse navbar-fixed-top scroll-me" id="menu-section" >
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#rsnavbar">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+	<a class="navbar-brand" href="/">
+	ROGER SKYLINE
+	</a>
+</div>
+<div class="navbar-collapse collapse" id="rsnavbar">
+<ul class="nav navbar-nav navbar-right">
+{% if user.is_authenticated%}
+<li> <a href="#">{{user.username}}</a> </li>
+<li> <a href="/?logout=True">logout</a> </li>
+{% endif %}
+</ul>
+</div>
+
+</div>
+</div>
+<div id="home" >
+<div class="container">
+	{% block content %}
+	{% endblock %}
+</div>
+</div>
+<script src="{% static 'assets/js/jquery-1.11.1.js' %}" ></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="{% static 'assets/js/bootstrap.js' %}" ></script>
+<!-- EASING SCROLL SCRIPTS PLUGIN -->
+<script src="{% static 'assets/js/vegas/jquery.vegas.min.js' %}" ></script>
+<!-- VEGAS SLIDESHOW SCRIPTS -->
+<script src="{% static 'assets/js/jquery.easing.min.js' %}" ></script>
+<!-- FANCYBOX PLUGIN -->
+<script src="{% static 'assets/js/source/jquery.fancybox.js' %}" ></script>
+<!-- ISOTOPE SCRIPTS -->
+<script src="{% static 'assets/js/jquery.isotope.js' %}" ></script>
+<!-- VIEWPORT ANIMATION SCRIPTS   -->
+<script src="{% static 'assets/js/appear.min.js' %}" ></script>
+<script src="{% static 'assets/js/animations.min.js' %}" ></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="{% static 'assets/js/custom-solid.js' %}" ></script>
+
+</body>
+</html>

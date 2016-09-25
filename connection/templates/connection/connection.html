@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="services">
+<div class="row animate-in" data-anim-type="fade-in-up">
+
+{% if user.is_staff %}
+<div class="header">
+<h3>ADMIN GOD MOD</h3>
+<hr>
+</div>
+
+<div class="col-xs-12 col-sm-6">
+<form role="form" method="post" action="/" class="services-wrapper">
+	<h4>ADD NEW USER<h4><hr>
+	<input name="username" class="form-control col-xs-12" type="textbox"
+	placeholder="username" required>
+	<input name="email" class="form-control col-xs-12" type="email"
+	placeholder="email" required>
+	<input name="password" class="form-control col-xs-12" type="textbox"
+	placeholder="password" required>
+	<label class="col-xs-10 col-sm-8 checkbox" for="staff">
+	new user is staff?:
+	<input name="staff" class="col-xs-2 col-sm-4" type="checkbox"
+	placeholder="staff" id="staff">
+	</label>
+	<button class="btn button-custom btn-custom-one">submit</button>
+</form>
+</div>
+<div class="col-xs-12 col-sm-6">
+<div class="services-wrapper">
+<form role="form" method="post" action="/" >
+	<h4>CHANGE USER PASSWORD</h4><hr>
+	<select class="form-control" name="user">
+	{% for u in list_all_users %}
+	<option value="{{u.pk}}">{{u}}{% if u.is_staff %} (staff){% endif%}
+		</option>
+	{% endfor %}
+	</select>
+	<input name="password" class="form-control col-xs-12" type="password"
+	placeholder="new password">
+	<button class="btn button-custom btn-custom-one">submit</button>
+</form>
+</div>
+</div>
+{% elif user.is_authenticated%}
+<div class="header">
+<h3>HI USER</h3><hr>
+</div>
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<div class="services-wrapper">
+<form role="form" method="post" action="/" >
+	<h4>CHANGE UR PASSWORD</h4><hr>
+	<input name="new_password" class="form-control col-xs-12" type="password"
+	placeholder="new password">
+	<button class="btn button-custom btn-custom-one">submit</button>
+</form>
+</div>
+</div>
+{% else %}
+
+<div class="header"><h3>CONNECTION</h3>
+<hr></div>
+
+<form role="form" method="post" action="/" 
+	class="services-wrapper form-horizontal col-xs-12 col-sm-6 col-sm-offset-3">
+	{% csrf_token %}
+	<input name="login" class="form-control col-xs-12" type="textbox"
+	placeholder="login">
+	<input name="password" class="form-control col-xs-12" type="password"
+	placeholder="password">
+	<button class="btn button-custom btn-custom-one">connection</button>
+</form>
+{% endif %}
+
+</div>
+</section>
+{% endblock %}
