@@ -12,8 +12,8 @@ in roger/settings.py complete
 	# line 82
 	DATABASES = {
 	    'default': {
-	        'ENGINE': 'django.db.backends.mysql',	# for mysql or mariadb
-	        'NAME': '',				# name of db
+	        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	        'NAME': '',
 	        'USER': '',
 	        'PASSWORD': '',
 	        'HOST': '',
@@ -32,4 +32,4 @@ and init django
 	python3 manage.py makemigrations
 	python3 manage.py migrate
 	python3 manage.py createsuperuser
-	python3 manage.py runserver
+	python3 manage.py collectstatic
