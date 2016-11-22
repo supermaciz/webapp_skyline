@@ -78,16 +78,25 @@ WSGI_APPLICATION = 'roger.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
+DATABASE_ROUTERS = ['roger.db.ReadOrWrite']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': ''',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'NAME': 'django_db',
+        'USER': 'django_user',
+        'PASSWORD': 'django_user',
+        'HOST': 'db_write',
+        'PORT': '5432',
+    },
+    'db_read': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_db',
+        'USER': 'django_user',
+        'PASSWORD': 'django_user',
+        'HOST': 'db_read',
+        'PORT': '5432',
     }
+
 }
 
 # Password validation
