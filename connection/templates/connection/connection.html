@@ -12,6 +12,7 @@
 
 <div class="col-xs-12 col-sm-6">
 <form role="form" method="post" action="/" class="services-wrapper">
+	{% csrf_token %}
 	<h4>ADD NEW USER<h4><hr>
 	<input name="username" class="form-control col-xs-12" type="textbox"
 	placeholder="username" required>
@@ -30,6 +31,7 @@
 <div class="col-xs-12 col-sm-6">
 <div class="services-wrapper">
 <form role="form" method="post" action="/" >
+	{% csrf_token %}
 	<h4>CHANGE USER PASSWORD</h4><hr>
 	<select class="form-control" name="user">
 	{% for u in list_all_users %}
@@ -50,6 +52,7 @@
 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 <div class="services-wrapper">
 <form role="form" method="post" action="/" >
+	{% csrf_token %}
 	<h4>CHANGE UR PASSWORD</h4><hr>
 	<input name="new_password" class="form-control col-xs-12" type="password"
 	placeholder="new password">
