@@ -146,8 +146,11 @@ STATIC_URL = '/static/'
 
 # email
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'intrafamtp@gmail.com'
-EMAIL_HOST_PASSWORD = 'salutintra'
-EMAIL_PORT = 587
+EMAIL_HOST = 'mail.slash16.local'
+EMAIL_HOST_USER = 'no-reply@slash16.local'
+#EMAIL_HOST_PASSWORD = 'akazian'
+EMAIL_PORT = 25
 EMAIL_USE_TLS = True
+EMAIL_SSL_CERTFILE = '/etc/ssl/certs/cert.pem'
+EMAIL_SSL_KEYFILE = '/etc/ssl/private/cert.key'
+DEFAULT_FROM_EMAIL = 'no-reply@slash16.local'
