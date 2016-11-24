@@ -2,10 +2,13 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
+import datetime
 
 
 def send_email(contact, msg, obj):
-    email = EmailMessage(obj, msg, to=[contact])
+    date = datetime.datetime.now()
+    headers = {'date': date}
+    email = EmailMessage(obj, msg, to=[contact], headers=headers)
     try:
         email.send()
     except:
@@ -53,4 +56,4 @@ def hello(request):
     if request.user.is_superuser:
         list_all_users = User.objects.all()
     return render(request, 'connection/connection.html',
-                  {'list_all_users': list_all_users})
+            {'list_all_users': list_all_users})

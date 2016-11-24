@@ -123,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
 
@@ -145,7 +145,6 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 # email
-
 EMAIL_HOST = 'mail.slash16.local'
 EMAIL_HOST_USER = 'no-reply@slash16.local'
 #EMAIL_HOST_PASSWORD = 'akazian'
