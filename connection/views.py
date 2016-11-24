@@ -8,7 +8,6 @@ def send_email(contact, msg, obj):
     email = EmailMessage(obj, msg, to=[contact])
     try:
         email.send()
-        email.send()
     except:
         print("configure email THXKBYE")
 

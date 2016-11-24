@@ -7,7 +7,3 @@ requiert python3
 
 	pip install -r requirements.txt
 
-TODO:
------
-* Fix: double mail
- 
