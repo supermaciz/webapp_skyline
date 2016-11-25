@@ -2,12 +2,12 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
-import datetime
+from email.utils import format_datetime, localtime
 
 
 def send_email(contact, msg, obj):
-    date = datetime.datetime.now()
-    headers = {'date': date}
+    date = format_datetime(localtime())
+    headers = {'Date': date}
     email = EmailMessage(obj, msg, to=[contact], headers=headers)
     try:
         email.send()
