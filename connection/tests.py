@@ -5,12 +5,25 @@ from django.test import TestCase
 from .views import send_email
 
 
+TEST_DB = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'django_db',
+    },
+    'db_read': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'django_db',
+    }
+}
+
+
 class ViewTests(TestCase):
     "..."
     def test_send_email(self):
         "Fake email to test this feature"
         with self.settings(EMAIL_BACKEND='django.core.mail.backends.filebased.EmailBackend',
-                           EMAIL_FILE_PATH='/tmp/django-mail666'):
+                           EMAIL_FILE_PATH='/tmp/django-mail666',
+                           DATABASES=TEST_DB):
             try:
                 os.remove('/tmp/django-mail666')
             except FileNotFoundError:
