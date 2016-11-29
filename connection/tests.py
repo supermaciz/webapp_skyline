@@ -5,18 +5,6 @@ from django.test import TestCase
 from .views import send_email
 
 
-TEST_DB = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'django_db',
-    },
-    'db_read': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'django_db',
-    }
-}
-
-
 class ViewTests(TestCase):
     "..."
     def test_send_email(self):
