@@ -153,3 +153,5 @@ EMAIL_USE_TLS = True
 EMAIL_SSL_CERTFILE = '/etc/ssl/certs/cert.pem'
 EMAIL_SSL_KEYFILE = '/etc/ssl/private/cert.key'
 DEFAULT_FROM_EMAIL = 'no-reply@slash16.local'
+
+CSRF_TRUSTED_ORIGINS = ["10.17.1.154"]
