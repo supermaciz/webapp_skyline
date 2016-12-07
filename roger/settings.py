@@ -95,6 +95,9 @@ DATABASES = {
         'PASSWORD': 'django_user',
         'HOST': 'db_read',
         'PORT': '5432',
+        'TEST': {
+            'MIRROR': 'default',
+        },
     }
 
 }
