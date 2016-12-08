@@ -17,6 +17,7 @@ def send_email(contact, msg, obj):
 
 def hello(request):
     list_all_users = None
+    error = ''
     if request.method == "POST":
         if request.POST.get('login'):
             username = request.POST.get('login')
@@ -30,13 +31,14 @@ def hello(request):
             passwd = request.POST.get('password')
             email = request.POST.get('email')
             try:
-                user = User(username=username, password=passwd, email=email)
+                user = User(username=username, email=email)
+                user.set_password(passwd)
                 if request.POST.get("staff"):
                     user.is_staff = True
                 user.save()
                 send_email(user.email, "registration confirmed", "welcome to roger skyline")
             except:
-                pass
+                error = 'mail or user allready exist'
         elif request.POST.get('user'):
             pk = request.POST.get('user')
             passwd = request.POST.get('password')
@@ -56,4 +58,4 @@ def hello(request):
     if request.user.is_superuser:
         list_all_users = User.objects.all()
     return render(request, 'connection/connection.html',
-            {'list_all_users': list_all_users})
+                  {'list_all_users': list_all_users, 'error': error})
