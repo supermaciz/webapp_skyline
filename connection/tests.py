@@ -24,4 +24,8 @@ class ViewTests(TestCase):
                     mail_exists = False
             except FileNotFoundError:
                 mail_exists = False
+            try:
+                rmtree("/tmp/django-mail666")
+            except FileNotFoundError:
+                pass
             self.assertIs(mail_exists, True)
