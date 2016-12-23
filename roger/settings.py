@@ -25,7 +25,7 @@ SECRET_KEY = 'g+iq5)3ta#skgaa)#lzyl=xn8jxcnmj(-ip8i%(!69l64w(nm6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "10.17.1.154", "preprod.slash16.local"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "10.17.1.154", "preprod.slash16.local", "www.slash16.local"]
 
 
 # Application definition
@@ -152,7 +152,7 @@ EMAIL_HOST = 'mail.slash16.local'
 EMAIL_HOST_USER = 'no-reply@slash16.local'
 #EMAIL_HOST_PASSWORD = 'akazian'
 EMAIL_PORT = 25
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 EMAIL_SSL_CERTFILE = '/etc/ssl/certs/cert.pem'
 EMAIL_SSL_KEYFILE = '/etc/ssl/private/cert.key'
 DEFAULT_FROM_EMAIL = 'no-reply@slash16.local'
